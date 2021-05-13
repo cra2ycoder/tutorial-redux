@@ -1,4 +1,7 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
+  font-family: Untitled Sans, sans-serif;
+  line-height: 1.4;
+  font-size: 1.8rem;
+  color: #1a1a19;
+  -webkit-font-smoothing: antialiased;
 }
