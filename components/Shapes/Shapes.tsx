@@ -18,17 +18,19 @@ const Circle = () => {
   }`.trim();
 
   return (
-    <div id="circle">
-      <style
-        id="css"
-        dangerouslySetInnerHTML={{
-          __html: styleSheet
-        }}
-      />
-      <div id="html">
-        <div className="dimension bg-color radius"></div>
+    <>
+      <div id="circle">
+        <style
+          id="css"
+          dangerouslySetInnerHTML={{
+            __html: styleSheet
+          }}
+        />
+        <div id="html">
+          <div className="dimension bg-color radius"></div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -130,9 +132,7 @@ function Shapes() {
         </button>
       ))}
       <hr />
-      <div style={{ visibility: "hidden", height: 0 }}>
-        {activeComponent?.component || <></>}
-      </div>
+      <div>{activeComponent?.component || <></>}</div>
       <CodePreviewer html={code?.html} css={code?.css} />
       <hr />
       <CodeEditor code={code} setCode={setCode} />
