@@ -1,0 +1,54 @@
+.ms-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  position: relative;
+  align-items: center;
+  border-bottom: 2px solid orange;
+}
+
+.ms-input {
+  border: 0px;
+}
+
+.ms-input:focus {
+  outline: none;
+}
+
+.ms-options-panel {
+  width: 80%;
+  margin-top: 3px;
+}
+
+#lang-options {
+  width: 100%;
+}
+
+#lang-options option {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.ms-items-panel {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ms-selected-item {
+  display: flex;
+  padding: 0.2rem 1rem;
+  font-size: 0.8rem;
+  align-items: center;
+  /* margin: 0.4rem; */
+  margin-right: 0.2rem;
+  margin-bottom: 0.2rem;
+  border-radius: 14px;
+  background-color: rgb(185, 185, 185);
+}
+
+.ms-selected-item-close {
+  margin-left: 1rem;
+  cursor: pointer;
+}

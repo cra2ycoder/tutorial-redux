@@ -1,6 +1,7 @@
 import { Provider } from "react-redux";
 import ReduxStore from "../redux/store";
 import Counter from "../components/Counter";
+import MultiSelect from "../components/MultiSelect";
 import "./styles.css";
 
 export default function App() {
@@ -11,6 +12,8 @@ export default function App() {
         <p>@cra2ycoder</p>
         <hr />
         <Counter />
+        <hr />
+        <MultiSelect />
       </div>
     </Provider>
   );

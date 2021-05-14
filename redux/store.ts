@@ -6,6 +6,7 @@ import { configureStore } from "@reduxjs/toolkit";
  * to use it every where in App
  */
 import counterReducer from "./counter/slice";
+import multiSelectReducer from "./multiselect/slice";
 
 /**
  * @description
@@ -13,6 +14,7 @@ import counterReducer from "./counter/slice";
  */
 export default configureStore({
   reducer: {
-    counterReducer
+    counterReducer,
+    multiSelectReducer
   }
 });
