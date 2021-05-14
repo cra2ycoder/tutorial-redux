@@ -13,7 +13,9 @@ export default function App() {
         <hr />
         <Counter />
         <hr />
+        <h3>Multiselect</h3>
         <MultiSelect />
+        <hr />
       </div>
     </Provider>
   );
