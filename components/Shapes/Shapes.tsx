@@ -4,6 +4,30 @@ import "codemirror/mode/xml/xml";
 import "codemirror/mode/css/css";
 import "codemirror/mode/javascript/javascript";
 
+const Circle = () => {
+  const styleSheet = `
+  .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+ }`;
+
+  return (
+    <div id="circle">
+      <style
+        id="css"
+        dangerouslySetInnerHTML={{
+          __html: styleSheet
+        }}
+      />
+      <div id="html">
+        <div className="circle"></div>
+      </div>
+    </div>
+  );
+};
+
 const CodePreviewer = ({ html, css }) => {
   return (
     <>
@@ -19,12 +43,6 @@ const CodePreviewer = ({ html, css }) => {
 };
 
 function CodeEditor({ code, setCode }: any) {
-  useEffect(() => {
-    const css = document.querySelectorAll("#css")[0].innerHTML;
-    const html = document.querySelectorAll("#html")[0].innerHTML;
-    setCode({ html, css });
-  }, []);
-
   return (
     <div>
       <CodeMirror
@@ -59,23 +77,48 @@ function CodeEditor({ code, setCode }: any) {
 }
 
 function Shapes() {
-  const shapeNames = ["square", "circle", "rectangle"];
+  const [activeComponent, setActiveComponent] = useState(null);
   const [code, setCode] = useState({
-    css: `.circle {
-         width: 100px;
-         height: 100px;
-         border-radius: 50%;
-         background-color: red;
-    }`,
-    html: `<div class="circle"></div>`
+    css: ``,
+    html: ``
   });
+
+  const components = [
+    {
+      component: <Circle />,
+      name: "Circle",
+      parentId: "circle"
+    }
+  ];
+
+  const renderComponent = (activeComponent: any) => {
+    setActiveComponent(activeComponent);
+  };
+
+  useEffect(() => {
+    const css = document.querySelectorAll(
+      `#${activeComponent?.parentId} #css`
+    )[0]?.innerHTML;
+
+    const html = document.querySelectorAll(
+      `#${activeComponent?.parentId} #html`
+    )[0]?.innerHTML;
+
+    setCode({ html, css });
+  }, [activeComponent]);
 
   return (
     <>
+      <div style={{ visibility: "hidden", height: 0 }}>
+        {activeComponent?.component || <></>}
+      </div>
       <CodePreviewer html={code?.html} css={code?.css} />
+      <hr />
       <CodeEditor code={code} setCode={setCode} />
-      {shapeNames.map((x) => (
-        <button>{x}</button>
+      {components.map((x, idx) => (
+        <button key={`btn-${idx}`} onClick={() => renderComponent(x)}>
+          {x.name}
+        </button>
       ))}
     </>
   );
