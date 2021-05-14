@@ -10,7 +10,9 @@
   "main": "src/index.tsx",
   "dependencies": {
     "@reduxjs/toolkit": "1.5.1",
+    "codemirror": "5.61.0",
     "react": "17.0.2",
+    "react-codemirror2": "7.2.1",
     "react-dom": "17.0.2",
     "react-redux": "7.2.4",
     "react-scripts": "4.0.0"
