@@ -43,8 +43,8 @@ function Counter() {
   return (
     <div>
       <h3 style={{ margin: 0 }}>Counter: {counterState?.counter}</h3>
-      <button onClick={onMinusButtonClick}>Increment</button>
-      <button onClick={onPlusButtonClick}>Decrement</button>
+      <button onClick={onMinusButtonClick}>Decrement</button>
+      <button onClick={onPlusButtonClick}>Increment</button>
       <button onClick={onMultiplyButtonClick}>Multiply by 10</button>
     </div>
   );
