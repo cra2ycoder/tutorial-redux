@@ -59,7 +59,7 @@ function OptionsList() {
     actionDispatch(clearSearchKey({}));
   };
 
-  console.log({ selectedItemList });
+  // console.log({ selectedItemList });
 
   return (
     <div className="ms-options-panel">

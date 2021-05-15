@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setCode, setActiveComponent } from "../../redux/livecoder";
+import { setCode } from "../../redux/livecoder";
 import CodeEditor from "./CodeEditor";
 import CodePreviewer from "./CodePreviewer";
 import componentList from "../CSS/ComponentList";
