@@ -1,9 +1,14 @@
+import { useSelector, useDispatch } from "react-redux";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/css/css";
 import "codemirror/mode/javascript/javascript";
+import { setHTML, setCSS } from "../../redux/livecoder";
 
-function CodeEditor({ code, setCode }: any) {
+function CodeEditor() {
+  const { code = {} } = useSelector((state) => state.liveCoderReducer);
+  const actionDispatch = useDispatch();
+
   return (
     <div
       style={{
@@ -22,8 +27,7 @@ function CodeEditor({ code, setCode }: any) {
             lineNumbers: true
           }}
           onBeforeChange={(editor, data, value) => {
-            code.html = value;
-            setCode({ ...code });
+            actionDispatch(setHTML(value));
           }}
           onChange={(editor, data, value) => {}}
         />
@@ -38,8 +42,7 @@ function CodeEditor({ code, setCode }: any) {
             lineNumbers: true
           }}
           onBeforeChange={(editor, data, value) => {
-            code.css = value;
-            setCode({ ...code });
+            actionDispatch(setCSS(value));
           }}
           onChange={(editor, data, value) => {}}
         />

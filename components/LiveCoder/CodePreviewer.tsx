@@ -1,4 +1,10 @@
-const CodePreviewer = ({ html, css }) => {
+import { useSelector } from "react-redux";
+
+const CodePreviewer = () => {
+  const { code: { css = "", html = "" } = {} } = useSelector(
+    (state) => state.liveCoderReducer
+  );
+
   return (
     <>
       <style
