@@ -39,7 +39,6 @@ export const Shapes = () => {
 
   const handleChange = (e) => {
     const { id, checked } = e.target;
-    // console.log({ id, checked, className });
 
     if (checked === true) {
       className.push(id);
@@ -54,8 +53,8 @@ export const Shapes = () => {
   }, [className]);
 
   useEffect(() => {
-    const css = document.querySelectorAll(`#shapes #css`)[0]?.innerHTML;
     const html = document.querySelectorAll(`#shapes #html`)[0]?.innerHTML;
+    const css = document.querySelectorAll(`#shapes #css`)[0]?.innerHTML;
     actionDispatch(setCode({ html, css }));
   }, [className]);
 
