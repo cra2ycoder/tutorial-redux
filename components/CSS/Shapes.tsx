@@ -54,14 +54,14 @@ export const Shapes = () => {
   }, [className]);
 
   useEffect(() => {
-    const css = document.querySelectorAll(`#circle #css`)[0]?.innerHTML;
-    const html = document.querySelectorAll(`#circle #html`)[0]?.innerHTML;
+    const css = document.querySelectorAll(`#shapes #css`)[0]?.innerHTML;
+    const html = document.querySelectorAll(`#shapes #html`)[0]?.innerHTML;
     actionDispatch(setCode({ html, css }));
   }, [className]);
 
   return (
     <>
-      <div id="circle">
+      <div id="shapes">
         <style
           id="css"
           dangerouslySetInnerHTML={{
