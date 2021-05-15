@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { setCode } from "../../redux/livecoder";
+import { useState } from "react";
 import CodeEditor from "./CodeEditor";
-import CodePreviewer from "./CodePreviewer";
 import componentList from "../CSS/ComponentList";
 
 function LiveCoder() {
   const [activeComponent, setActiveComponent] = useState(null);
-  const actionDispatch = useDispatch();
 
   const renderComponent = (activeComponent: any) => {
     setActiveComponent(activeComponent);
   };
-
-  useEffect(() => {
-    const css = document.querySelectorAll(
-      `#${activeComponent?.parentId} #css`
-    )[0]?.innerHTML;
-
-    const html = document.querySelectorAll(
-      `#${activeComponent?.parentId} #html`
-    )[0]?.innerHTML;
-
-    actionDispatch(setCode({ html, css }));
-  }, [activeComponent]);
 
   return (
     <>
@@ -34,7 +18,6 @@ function LiveCoder() {
       ))}
       <hr />
       <div>{activeComponent?.component || <></>}</div>
-      <CodePreviewer />
       <hr />
       <CodeEditor />
     </>

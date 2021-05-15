@@ -1,4 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCode } from "../../redux/livecoder";
 
 const styleSheetObject = {
   dimension: {
@@ -14,19 +16,10 @@ const styleSheetObject = {
 };
 
 export const Shapes = () => {
-  const [className, setClassNames] = useState([]);
+  const [className, setClassName] = useState([]);
+  const actionDispatch = useDispatch();
 
-  const handleChange = (e) => {
-    const { id, checked } = e.target;
-    if (checked === true) {
-      className.push(id);
-    } else {
-      className.splice(className.indexOf(id), 1);
-    }
-    setClassNames([...className]);
-  };
-
-  const css = useMemo(() => {
+  const getCSSString = () => {
     const getStylesheet = (obj) => {
       let cssString = ``;
       Object.keys(obj).forEach((key) => {
@@ -42,12 +35,32 @@ export const Shapes = () => {
     }`
       )
       .join(" ");
+  };
+
+  const handleChange = (e) => {
+    const { id, checked } = e.target;
+    // console.log({ id, checked, className });
+
+    if (checked === true) {
+      className.push(id);
+    } else {
+      className.splice(className.indexOf(id), 1);
+    }
+    setClassName([...className]);
+  };
+
+  const css = useMemo(() => {
+    return getCSSString();
+  }, [className]);
+
+  useEffect(() => {
+    const css = document.querySelectorAll(`#circle #css`)[0]?.innerHTML;
+    const html = document.querySelectorAll(`#circle #html`)[0]?.innerHTML;
+    actionDispatch(setCode({ html, css }));
   }, [className]);
 
   return (
     <>
-      <div>{className.join(" ")}</div>
-      <div>{css}</div>
       <div id="circle">
         <style
           id="css"

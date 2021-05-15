@@ -4,9 +4,13 @@ const liveCoderSlice = createSlice({
   name: "livecoder",
   initialState: {
     mode: "view",
-    code: {}
+    code: {
+      html: "",
+      css: ""
+    }
   },
   reducers: {
+    reload: (state, action) => {},
     setCode: (state, action) => {
       state.code = action.payload;
     },
@@ -22,5 +26,11 @@ const liveCoderSlice = createSlice({
   }
 });
 
-export const { setHTML, setCSS, setMode, setCode } = liveCoderSlice.actions;
+export const {
+  setHTML,
+  setCSS,
+  setMode,
+  setCode,
+  reload
+} = liveCoderSlice.actions;
 export default liveCoderSlice.reducer;

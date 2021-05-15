@@ -1,19 +1,16 @@
 import { useSelector } from "react-redux";
 
 const CodePreviewer = () => {
-  const { code: { css = "", html = "" } = {} } = useSelector(
-    (state) => state.liveCoderReducer
-  );
-
+  const { code = {} } = useSelector((state) => state.liveCoderReducer);
   return (
     <>
       <style
         id="css"
         dangerouslySetInnerHTML={{
-          __html: css
+          __html: code?.css
         }}
       />
-      <div id="html" dangerouslySetInnerHTML={{ __html: html }} />
+      <div id="html" dangerouslySetInnerHTML={{ __html: code?.html }} />
     </>
   );
 };
