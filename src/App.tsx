@@ -2,8 +2,7 @@ import { Provider } from "react-redux";
 import ReduxStore from "../redux/store";
 import Counter from "../components/Counter";
 import MultiSelect from "../components/MultiSelect";
-import Shapes from "../components/Shapes";
-
+import LiveCoder from "../components/LiveCoder";
 import "./styles.css";
 
 export default function App() {
@@ -19,7 +18,7 @@ export default function App() {
         <MultiSelect />
         <hr />
         <h3>Shapes with CSS</h3>
-        <Shapes />
+        <LiveCoder />
         <hr />
       </div>
     </Provider>
