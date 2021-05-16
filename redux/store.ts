@@ -7,7 +7,6 @@ import { configureStore } from "@reduxjs/toolkit";
  */
 import counterReducer from "./counter/slice";
 import multiSelectReducer from "./multiselect/slice";
-import liveCoderReducer from "./livecoder/slice";
 
 /**
  * @description
@@ -16,7 +15,6 @@ import liveCoderReducer from "./livecoder/slice";
 export default configureStore({
   reducer: {
     counterReducer,
-    multiSelectReducer,
-    liveCoderReducer
+    multiSelectReducer
   }
 });
